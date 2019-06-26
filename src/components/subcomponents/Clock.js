@@ -1,22 +1,47 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
-// frunction clock() {
-//     const ticker = (
-//         <div>
-//             <h2>It is {new Date().toLocaleDateString()}</h2>
-//         </div>
-//     )
-//     ReactDOM.render(ticker,document.getElementById('root')
-// };
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: new Date().toLocaleTimeString(),
+      date: new Date().toLocaleDateString()
+    };
+  }
 
-// export const Clock = () => {
-//   return <h2>It is {new Date().toLocaleDateString()}</h2>;
-//   ReactDOM.render();
-// };
+  componentDidMount() {
+    this.intervalID = setInterval(() => this.tick(), 1000);
+  }
 
-function Clock() {
-  return <h2>Today's date {new Date().toLocaleDateString()}</h2>;
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
+  tick() {
+    this.setState({
+      time: new Date().toLocaleTimeString(),
+      date: new Date().toLocaleDateString()
+    });
+  }
+
+  render() {
+    return (
+      <h2 className='App-clock'>
+        <p>The time is {this.state.time}</p>
+        <p>The Date is {this.state.date}</p>
+      </h2>
+    );
+  }
 }
+
+// function Clock() {
+//   return (
+//     <h2>
+//       <p>Today's date {new Date().toLocaleDateString()}</p>
+//       <p>And the time is: {new Date().toLocaleTimeString()}</p>
+//     </h2>
+//   );
+// }
 
 export default Clock;
