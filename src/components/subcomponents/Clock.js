@@ -10,7 +10,13 @@ import ReactDOM from "react-dom";
 //     ReactDOM.render(ticker,document.getElementById('root')
 // };
 
-export const clock = () => {
-  return <h2>It is {new Date().toLocaleDateString()}</h2>;
-  ReactDOM.render();
-};
+// export const Clock = () => {
+//   return <h2>It is {new Date().toLocaleDateString()}</h2>;
+//   ReactDOM.render();
+// };
+
+function Clock() {
+  return <h2>Today's date {new Date().toLocaleDateString()}</h2>;
+}
+
+export default Clock;
