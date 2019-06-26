@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import Heading from "./components/Header";
-import clock from "./components/subcomponents/Clock";
+import Clock from "./components/subcomponents/Clock";
 
 const timer = <p>Another timer: {new Date().toLocaleTimeString()}</p>;
 
@@ -33,12 +33,14 @@ function App() {
         {/* <p>{tick}</p> */}
         {/* <p>Your time is: {new Date().toLocaleTimeString()}</p> */}
         {/* {timer} */}
-        <clock />
+        <Clock />
       </header>
     </div>
   );
   // ReactDOM.render(timer, document.getElementById("root"));
 }
+
+setInterval(Clock, 1000);
 export default App;
 // ReactDOM.render(<App />, document.getElementById("root"));
 // ReactDOM.render(App, document.getElementById("root"));
