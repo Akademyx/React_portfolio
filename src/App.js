@@ -1,18 +1,19 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
+// import React, { Component } from "react";
+// import ReactDOM from "react-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import Heading from "./components/Header";
 import Clock from "./components/subcomponents/Clock";
 
-const timer = <p>Another timer: {new Date().toLocaleTimeString()}</p>;
+// const timer = <p>Another timer: {new Date().toLocaleTimeString()}</p>;
 
 function App() {
-  const tick = (
-    <div>
-      <p>Your time is: {new Date().toLocaleTimeString()}</p>
-    </div>
-  );
+  // const tick = (
+  //   <div>
+  //     <p>Your time is: {new Date().toLocaleTimeString()}</p>
+  //   </div>
+  // );
 
   return (
     <div className='App'>
@@ -40,7 +41,6 @@ function App() {
   // ReactDOM.render(timer, document.getElementById("root"));
 }
 
-setInterval(Clock, 1000);
 export default App;
 // ReactDOM.render(<App />, document.getElementById("root"));
 // ReactDOM.render(App, document.getElementById("root"));
