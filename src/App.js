@@ -3,6 +3,7 @@ import React from "react";
 // import ReactDOM from "react-dom";
 import logo from "./logo.svg";
 import "./App.css";
+import Tagline from "./components/subcomponents/Tagline";
 import Heading from "./components/Header";
 import Clock from "./components/subcomponents/Clock";
 
@@ -20,6 +21,7 @@ function App() {
       <Heading />
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
+        <Tagline/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

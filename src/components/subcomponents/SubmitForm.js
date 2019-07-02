@@ -8,40 +8,107 @@ class SubmitForm extends React.Component {
     this.state = { 
       name: this.props.name,
       age: this.props.age,
-      userName: this.props.userName
+      userName: this.props.userName,
      };
-
-    this.handleChange = this.handleChange.bind(this);
+    // const info= {
+    //   name: useState(this.props.name),
+    //   age: useState(this.props.age),
+    //   userName: useState(this.props.userName)
+    // }
+    this.handleChangeName = this.handleChangeName.bind(this);
+    this.handleChangeAge = this.handleChangeAge.bind(this);
+    this.handleChangeUserName = this.handleChangeUserName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(item) {
-    console.log("We're logging item as: ", item)
+  handleSubmit(event) {
+    event.preventDefault()
+    // console.log("We're logging item as: ")
+    console.log("we're going from submitform to...")
+    this.props.onSubmit(this.state)
   }
 
-  handleChange(event) {
-    this.setState({ name: event.target.value });
+  handleChangeName(event) {
+    event.preventDefault()
+    // this.setState({ 
+    //   name: event.target.value,
+    //   age: event.target.age,
+    //   userName: event.target.value,
+    // });
+    var target = event.target
+    var name = target.value
+    this.setState({
+        name: [name]
+    })
+    console.log("handlchange ", name)
   }
 
+  handleChangeAge(event){
+    event.preventDefault()
+    this.setState({
+      age: event.target.value
+    })
+  }
+
+  handleChangeUserName(event){
+    event.preventDefault()
+    this.setState({
+      userName: event.target.value
+    })
+  }
+  
   render() {
     // console.log("we're in the submit form console.log ", this.props, this.state);
     //both props and state have become the same thing.
-
+    // console.log("render of submitform: ", this.props)
+    console.log("render of submitform: ", this.state.name, this.state.age, this.state.userName)
+    var selections = [31, 32, 33, 34];
+    var options = selections.map(n =>
+      <option key={n} value={n}>{n}</option>
+    )
     return (
       <div>
-        <form onSubmit={this.handleSubmit(this.state.name)}>
+        <br/>
+        <hr />
+        <form onSubmit={this.handleSubmit}>
           type here:
           <input
             type='text'
-            name={this.state.name}
-            // value={}
-            onChange={e => this.handleChange(e)}
+            name="name"
+            defaultValue={this.state.name}
+            // value={this.state.name}
+            // value={this.state.name}
+            // onChange={e => this.handleChange(e)}
+            onChange={this.handleChangeName}
           />
+          <br/>
+
           <p>
-            <input type='submit' onSubmit={this.handleSubmit(this.state.name)} />
+            Age Select: 
+            <select 
+              name="age" 
+              defaultValue={this.state.age}
+              onChange={this.handleChangeAge}
+              // value={this.state.age}
+            >
+            {options}
+            </select>
           </p>
+          <p>Enter User Name</p>
+          <input 
+            type="text" 
+            name="userName"
+            defaultValue={this.state.userName}
+            onChange={this.handleChangeUserName}
+            />
+          <button 
+            // type="submit" 
+            onClick={ this.handleSubmit }
+            >
+            Change data
+          </button>
         </form>
-        <p>{this.props.age}</p>
+        <hr />
       </div>
     );
   }
