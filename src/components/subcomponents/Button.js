@@ -10,10 +10,6 @@ class Buttons extends Component {
     this.reset = this.reset.bind(this);
   }
 
-  // handleChange() {
-  //   this.setState({ number: this.state.number + 1 });
-  // }
-
   addOne() {
     this.setState({ number: this.state.number + 1 });
   }

@@ -7,16 +7,18 @@ class Heading extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Tran"
+      name: "Tran",
+      age: 31,
+      userName: "Akademyx"
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(event) {
-    alert("Submission works: " + this.state.name);
-    event.preventDefault();
+  handleSubmit(state) {
+    console.log("we're on handleSubmit of Header :" + state)
+    // alert("Submission works: " + this.state.name);
   }
 
   handleChange(event) {
@@ -26,10 +28,6 @@ class Heading extends Component {
 
   render() {
     const message = <p>This is a test</p>;
-    const person = {
-      name: "Alex",
-      age: 31
-    };
     return (
       <div>
         <Welcome name={this.state.name}>
@@ -39,7 +37,7 @@ class Heading extends Component {
           {message}
           <Buttons />
         </p>
-        <SubmitForm name={person.name} age={person.age} />
+        <SubmitForm name={this.state.name} age={this.state.age} userName={this.state.userName} onSubmit={e => this.handleSubmit(e)}/>
       </div>
     );
   }
