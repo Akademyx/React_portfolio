@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Button } from 'react-bootstrap';
-import "./buttons.css";
+import Button from "react-bootstrap/Button";
 import Text from './Text';
 import Text2 from './Text2';
 
@@ -34,9 +33,9 @@ class Buttons extends Component {
 
     return (
       <div className="btn_division" >
-        <button className="btn btn-counter" onClick={this.addOne}>Add One</button>
+        <Button variant="primary" className="btn btn-counter" onClick={this.addOne}>Add One</Button>
         <p>Our number is: {this.state.number}</p>
-        <button onClick={this.reset}>Reset</button>
+        <button variant="primary" onClick={this.reset}>Reset</button>
         {msg}
         {/* {even? <Text/>:<Text2/>} */}
       </div>
