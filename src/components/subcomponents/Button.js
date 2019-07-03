@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Button } from 'react-bootstrap';
+import "./buttons.css";
 import Text from './Text';
 import Text2 from './Text2';
 
@@ -31,8 +33,8 @@ class Buttons extends Component {
     console.log("we're in buttons ", this.props.number)
 
     return (
-      <div>
-        <button onClick={this.addOne}>Add One</button>
+      <div className="btn_division" >
+        <button className="btn btn-counter" onClick={this.addOne}>Add One</button>
         <p>Our number is: {this.state.number}</p>
         <button onClick={this.reset}>Reset</button>
         {msg}

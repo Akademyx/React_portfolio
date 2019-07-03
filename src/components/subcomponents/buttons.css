@@ -1,0 +1,10 @@
+/* button.btn-counter{
+    /* color: blue; */
+    /* background-color: green; */
+/*} */ 
+button.btn btn-counter{
+    border: blue;
+}
+div.btn_division{
+    background-color: skyblue;
+}
